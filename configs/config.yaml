@@ -1,0 +1,43 @@
+# Application Configuration
+app:
+  name: "ML Deployment Pipeline"
+  version: "1.0.0"
+  debug: false
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+
+# Model Configuration
+models:
+  model_v1:
+    path: "models/model_v1.pkl"
+    version: "1.0"
+    enabled: true
+  model_v2:
+    path: "models/model_v2.pkl"
+    version: "2.0"
+    enabled: true
+
+# A/B Testing Configuration
+ab_testing:
+  strategy: "random"  # random, user_based, feature_based
+  traffic_split:
+    model_v1: 0.5
+    model_v2: 0.5
+  minimum_requests: 100  # Minimum requests before A/B test is valid
+  
+# Monitoring Configuration
+monitoring:
+  enable_prometheus: true
+  enable_drift_detection: true
+  drift_check_interval: 3600  # seconds
+  performance_threshold: 0.05  # Alert if performance drops by 5%
+  
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "json"
+  file: "logs/app.log"
