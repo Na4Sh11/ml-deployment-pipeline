@@ -1,0 +1,94 @@
+{
+  "dashboard": {
+    "title": "ML Deployment Pipeline - A/B Testing Dashboard",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Predictions per Second by Model",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+        "targets": [
+          {
+            "expr": "rate(predictions_total[1m])",
+            "legendFormat": "{{model_version}}",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "smooth",
+              "fillOpacity": 10
+            },
+            "unit": "reqps"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Average Latency (seconds)",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+        "targets": [
+          {
+            "expr": "rate(prediction_latency_seconds_sum[1m]) / rate(prediction_latency_seconds_count[1m])",
+            "legendFormat": "{{model_version}}",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "drawStyle": "line",
+              "lineInterpolation": "smooth",
+              "fillOpacity": 10
+            },
+            "unit": "s"
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "Total Predictions by Model",
+        "type": "stat",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+        "targets": [
+          {
+            "expr": "predictions_total",
+            "legendFormat": "{{model_version}}",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "color": { "mode": "palette-classic" }
+          }
+        }
+      },
+      {
+        "id": 4,
+        "title": "Churn vs No Churn Predictions",
+        "type": "barchart",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+        "targets": [
+          {
+            "expr": "churn_predictions_total",
+            "legendFormat": "{{model_version}} - Prediction: {{prediction}}",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short"
+          }
+        }
+      }
+    ],
+    "schemaVersion": 36,
+    "version": 1,
+    "timezone": "browser",
+    "refresh": "5s"
+  }
+}
