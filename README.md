@@ -409,12 +409,5 @@ Contributions welcome! Please feel free to submit a Pull Request.
 ![Docker Services](docs/docker-services.png)
 *All services (API, Prometheus, Grafana) running via Docker Compose*
 
----
-
-⭐ **If you find this project helpful, please give it a star!**
-
-💬 **Questions?** Open an issue or reach out on LinkedIn!
-
----
 
 
