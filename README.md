@@ -305,11 +305,6 @@ ml-deployment-pipeline/
 - Account information (tenure, contract type, payment method)
 - Billing details (monthly charges, total charges)
 
-
-## 📝 License
-
-This project is licensed under the MIT License - see LICENSE file for details.
-
 ---
 
 ## 📸 Screenshots
